@@ -1,0 +1,18 @@
+[build-system]
+requires = [
+    "setuptools >=69.0.0, <70.0.0", 
+    "wheel >=0.42.0, <0.43.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mind"
+version = "0.1.0"
+requires-python = ">=3.8, <3.12"
+readme = "README.md"
+dependencies = [
+    "uvicorn[standard] ==0.25.0",
+    "fastapi ==0.105.0",
+    "python-multipart ==0.0.6",
+    "tensorflow[and-cuda] ==2.15.0.post1",
+]
