@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ "main", "develop" ]
 jobs:
-  build:
+  test-and-report:
     runs-on: ubuntu-latest
     permissions: read-all
     steps:
