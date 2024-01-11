@@ -8,6 +8,6 @@ class ModelController:
     async def predict(self, uploaded_img: UploadFile = File(...)) -> Response:
         raise NotImplementedError()
     
-    @_app.post("/train")
+    @_app.get("/train")
     async def train(self) -> Response:
-        raise NotImplementedError()
+        raise NotImplementedError("Future implementation")
