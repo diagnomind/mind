@@ -32,8 +32,8 @@ jobs:
     #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
     #     # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with unittest
-      run: python -m unittest discover tests
+    - name: Test with unittest and generate coverage
+      run:  coverage run -m --source=mind unittest discover tests
     - name: Analyze with SonarQube 
       uses: sonarsource/sonarqube-scan-action@master
       env:
