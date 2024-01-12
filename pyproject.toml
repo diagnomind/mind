@@ -11,15 +11,22 @@ version = "0.1.0"
 requires-python = ">=3.8, <3.12"
 readme = "README.md"
 dependencies = [
-    "uvicorn[standard] ==0.25.0",
     "fastapi ==0.105.0",
-    "python-multipart ==0.0.6",
-    "mariadb ==1.1.9",
-    "ipykernel ==6.28.0",
-    "tensorflow[and-cuda] ==2.15.0.post1",
     "keras <2.16,>=2.15.0",
     "numpy ==1.26.2",
-    "Pillow ==10.1.0",
+    "opencv-python-headless ==4.9.0.80",
+    "python-multipart ==0.0.6",
+    "tensorflow[and-cuda] ==2.15.0.post1",
+    "uvicorn[standard] ==0.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build ==1.0.3",
+    "coverage ==7.4.0",
+]
+notebook = [
+    "ipykernel ==6.28.0",
     "matplotlib ==3.8.2",
 ]
-optional-dependencies = { dev = ["pytest ==7.4.3"] }
+all = ["mind[dev, notebook]"]
