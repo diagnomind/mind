@@ -34,7 +34,7 @@ jobs:
     - name: Test with unittest and generate coverage
       run: | 
         coverage run -m --source=mind unittest discover tests
-        coverage xml
+        coverage xml -i
     - name: Analyze with SonarQube 
       uses: sonarsource/sonarqube-scan-action@master
       env:
