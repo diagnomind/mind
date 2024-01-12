@@ -3,4 +3,5 @@
 .coverage
 .pytest_cache/
 build/
+coverage.xml
 dist/
