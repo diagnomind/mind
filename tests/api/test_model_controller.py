@@ -1,10 +1,9 @@
 import asyncio
 import unittest
 from unittest.mock import MagicMock, patch
-from fastapi.testclient import TestClient
 from fastapi import UploadFile
 import numpy as np
-from mind.api.model_controller import _app, predict
+from mind.api.model_controller import predict
 from mind.model.predictor import Predictor
 
 
@@ -14,7 +13,6 @@ class TestPredictEndpoint(unittest.TestCase):
     def setUp(self, mock_load_model):
         mock_load_model.return_value = MagicMock()
         self._predictor = Predictor()
-        self.client = TestClient(_app)
 
     @patch("cv2.imdecode")
     @patch.object(Predictor, "predict")
