@@ -38,7 +38,7 @@ jobs:
     - name: Override Coverage Source Path for Sonar
       run: |
         sudo apt update && sudo apt install tree
-        tree /
+        tree /home /github
         sed -i "s/<source>\/home\/runner\/work\/mind\/mind<\/source>/<source>\/github\/workspace<\/source>/g" /github/workspace/coverage.xml
     - name: Analyze with SonarQube 
       uses: sonarsource/sonarqube-scan-action@master
