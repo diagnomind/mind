@@ -19,12 +19,12 @@ class TestPredictor(unittest.TestCase):
     @patch.object(Predictor, "_blend")
     def test_predict_correct(self, mock_predict, mock_blend):
         mock_blend.return_value = mock_predict.return_value = np.zeros(shape=self._image_shape)
-        result = self._predictor.predict(self._rng.integers(0, 256, size=self._image_shape, dtype=np.uint8))
+        result = self._predictor.predict(self._rng.integers(0, 256, size=self._image_shape, dtype=np.uint8), 0)
         self.assertTrue(np.array_equal(result, np.zeros(shape=self._image_shape)))
 
     def test_predict_incorrect(self):
         with self.assertRaises(ValueError):
-            self._predictor.predict(np.zeros((1, 1)))
+            self._predictor.predict(np.zeros((1, 1)), 0)
 
     def test_preprocess(self):
         preprocessed_img = self._predictor._preprocess(self._rng.integers(0, 256, size=(256, 256, 3), dtype=np.uint8))
