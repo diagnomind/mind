@@ -36,7 +36,10 @@ jobs:
         coverage run -m --source=mind unittest discover tests
         coverage xml -i
     - name: Override Coverage Source Path for Sonar
-      run: sed -i "s/<source>\/home\/runner\/work\/mind\/mind<\/source>/<source>\/github\/workspace<\/source>/g" /github/workspace/coverage.xml
+      run: |
+        sudo apt update && sudo apt install tree
+        tree /
+        sed -i "s/<source>\/home\/runner\/work\/mind\/mind<\/source>/<source>\/github\/workspace<\/source>/g" /github/workspace/coverage.xml
     - name: Analyze with SonarQube 
       uses: sonarsource/sonarqube-scan-action@master
       env:
