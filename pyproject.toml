@@ -30,3 +30,9 @@ notebook = [
     "matplotlib ==3.8.2",
 ]
 all = ["mind[dev, notebook]"]
+
+[project.scripts]
+mind = "mind:start_server"
+
+[tool.setuptools.package-data]
+"mind.model" = ["mind.keras"]
