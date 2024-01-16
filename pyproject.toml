@@ -32,3 +32,6 @@ notebook = [
     "scikit-learn ==1.3.2",
 ]
 all = ["mind[dev, notebook]"]
+
+[tool.setuptools.package-data]
+"mind.model" = ["mind.keras"]
