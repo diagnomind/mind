@@ -25,13 +25,10 @@ async def predict(uploaded_img: UploadFile = File(...)) -> Response:
     
 @_app.get("/simulation")
 async def simulation() -> Response:
-    try:
-        noise_image = np.random.default_rng(int(time.time())).integers(0, 256, size=(256, 256, 3), dtype=np.uint8)
-        _ , encoded_image = cv2.imencode(".png", noise_image)
-        headers = {
-            "Content-Type": CONTENT_TYPE,
-            "Content-Disposition": "inline; filename=prediction.png",
-        }
-        return Response(content=encoded_image.tobytes(), media_type=CONTENT_TYPE, headers=headers)
-    except Exception as e:
-        return Response(content=f"Error: {str(e)}", status_code=500)
+    noise_image = np.random.default_rng(int(time.time())).integers(0, 256, size=(256, 256, 3), dtype=np.uint8)
+    _ , encoded_image = cv2.imencode(".png", noise_image)
+    headers = {
+        "Content-Type": CONTENT_TYPE,
+        "Content-Disposition": "inline; filename=prediction.png",
+    }
+    return Response(content=encoded_image.tobytes(), media_type=CONTENT_TYPE, headers=headers)
