@@ -13,6 +13,7 @@ readme = "README.md"
 dependencies = [
     "fastapi ==0.105.0",
     "keras ==2.15.0",
+    "keras-tuner ==1.4.6",
     "numpy ==1.26.2",
     "opencv-python-headless ==4.9.0.80",
     "python-multipart ==0.0.6",
