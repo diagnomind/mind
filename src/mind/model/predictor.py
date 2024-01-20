@@ -17,8 +17,7 @@ class Predictor:
         return self._blend(image, ((prediction.squeeze() > threshold) * 255).astype(np.uint8), 0.5)
 
     def _preprocess(self, image: np.ndarray) -> np.ndarray:
-        processed_image = np.zeros(image.shape)
-        cv2.normalize(image, processed_image, 0, 1.0, cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+        processed_image = cv2.normalize(image, None, 0, 1.0, cv2.NORM_MINMAX, dtype=cv2.CV_32F) # type: ignore
         return processed_image
     
     def _blend(self, image: np.ndarray, mask: np.ndarray, alpha: float) -> np.ndarray:
