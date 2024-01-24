@@ -42,7 +42,7 @@ $> coverage run -m --source=mind unittest discover tests    # Will run the tests
 $> coverage html    # This will produce an html to see the coverage in every file.
 ```
 
-Note that the `mind.keras` model must be in `src/mind/model/mind.keras`, to be able to execute correctly afterwards.
+Note that the `mind.keras` model must be in `src/mind/model/mind.keras`, to be able to execute correctly afterwards. The compiled model is not included in the code, it is included in the releases.
 
 ## Usage
 
